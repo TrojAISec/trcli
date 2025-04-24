@@ -51,6 +51,11 @@ class ApiRequestHandler:
                 filter(lambda x: x["system_name"] == "custom_automation_id", fields),
                 None
             )
+            if not automation_id_field:
+                automation_id_field = next(
+                    filter(lambda x: x["system_name"] == "custom_case_automation_id", fields),
+                    None
+                )
             if automation_id_field:
                 if automation_id_field["is_active"] is False:
                     return FAULT_MAPPING["automation_id_unavailable"]
