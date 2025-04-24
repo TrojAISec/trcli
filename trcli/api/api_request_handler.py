@@ -300,13 +300,13 @@ class ApiRequestHandler:
             test_case_data = []
             for section in self.suites_data_from_provider.testsections:
                 for test_case in section.testcases:
-                    if test_case.custom_case_automation_id in test_cases_by_aut_id.keys():
+                    if test_case.custom_automation_id in test_cases_by_aut_id.keys():
                         case = test_cases_by_aut_id[test_case.custom_case_automation_id]
                         test_case_data.append({
                             "case_id": case["id"],
                             "section_id": case["section_id"],
                             "title": case["title"],
-                            "custom_case_automation_id": test_case.custom_case_automation_id
+                            "custom_automation_id": test_case.custom_automation_id
                         })
                     else:
                         missing_cases_number += 1
